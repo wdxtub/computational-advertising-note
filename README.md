@@ -2,8 +2,9 @@
 
 ## 学习笔记
 
-+ 10 分 `advanced-analytics-with-spark` 《Spark 高级数据分析》
-+ 8 分 `pyspark-in-action` 《Python+Spark2.0+Hadoop机器学习与大数据实战》
++ 10 分 `advanced-analytics-with-spark` 《Spark 高级数据分析》 ，使用 py3+spark2
++ 8 分 `pyspark-in-action` 《Python+Spark2.0+Hadoop机器学习与大数据实战》 ，使用 py36
++ `ctr-in-action` CTR 预估实战，使用 pyctr
 
 
 ## 数据集
