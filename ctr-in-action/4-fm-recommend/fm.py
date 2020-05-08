@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
+from sklearn import metrics
 import tensorflow as tf
 
 def filter_char(word):
@@ -82,11 +83,12 @@ print(name_vector.shape)
 print('dictionary word count', len(vectorizer.get_feature_names()))
 print(vectorizer.get_feature_names())
 
-# 准备 品牌 onehot，不需要先 label
+# 准备 品牌 onehot，不需要先 label（但是在 wtss 中需要，因为 sklearn 版本不同）
 brands =  np.array(brand_list) 
 ohe = OneHotEncoder(sparse=False).fit(brands.reshape(-1,1))
 oh_brand_label = ohe.transform(brands.reshape(-1,1))
 print('brands', brands)
+# wtss 上没有这个 api
 print('label dict', ohe.get_feature_names())
 print('onehot brad label', oh_brand_label)
 print(oh_brand_label.shape)
@@ -149,3 +151,5 @@ with tf.Session() as sess:
     predict = sess.run(Y_hat, feed_dict={X: test_x})
     for i in range(len(test_y)):
         print(f'predict: {predict[i]}, true: {test_y[i]}')
+    auc = metrics.roc_auc_score(test_y, predict)
+    print('auc', auc)
