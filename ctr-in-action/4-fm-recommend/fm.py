@@ -153,3 +153,14 @@ with tf.Session() as sess:
         print(f'predict: {predict[i]}, true: {test_y[i]}')
     auc = metrics.roc_auc_score(test_y, predict)
     print('auc', auc)
+    pr, re, thr = metrics.precision_recall_curve(test_y, predict)
+    print(predict.shape)
+    print(predict.flatten())
+    flat = predict.flatten()
+    a = sum(flat>=thr[0])/test_x.shape[0]
+    print(a)
+    thr = np.insert(thr, 0, [0.0],axis=0)
+    print(len(pr), pr)
+    print(len(re), re)
+    print(len(thr), thr)
+
