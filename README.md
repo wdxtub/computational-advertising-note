@@ -1,5 +1,8 @@
 # 计算广告 RTB 学习
 
+已迁移到 https://gitee.com/wdxtub/computational-advertising-note
+
+
 ## 学习笔记
 
 + 10 分 `advanced-analytics-with-spark` 《Spark 高级数据分析》 ，使用 py3+spark2
